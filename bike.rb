@@ -12,7 +12,14 @@ class Bike
     @color = color
     @price = price
     @weight = STANDARD_WEIGHT
-    @luggage = Luggage.new(Luggage::DEFAULT_MAX_CAPACITY, extra_items, self)
+    @luggage = Luggage.new(Luggage::DEFAULT_MAX_CAPACITY, extra_items)
+  end
+
+  # changed to use luggages own weight function
+  # previously version seemed to be wrong? 
+  # it used item.count whereas luggage uses item.size * 10
+  def total_weight
+    @weight + @luggage.luggage_weight
   end
 
 end
