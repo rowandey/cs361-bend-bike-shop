@@ -2,7 +2,6 @@
 require_relative 'luggage'
 
 class Bike
-
   STANDARD_WEIGHT = 200 # lbs
 
   attr_reader :id, :color, :price, :weight, :luggage
@@ -12,7 +11,7 @@ class Bike
     @color = color
     @price = price
     @weight = STANDARD_WEIGHT
-    @luggage = Luggage.new(Luggage::DEFAULT_MAX_CAPACITY, extra_items)
+    @luggage = Luggage.new(extra_items)
   end
 
   # changed to use luggages own weight function
@@ -21,5 +20,4 @@ class Bike
   def total_weight
     @weight + @luggage.luggage_weight
   end
-
 end
